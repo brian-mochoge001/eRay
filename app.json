@@ -12,20 +12,50 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "We need access to your camera to scan barcodes.",
+        "NSPhotoLibraryUsageDescription": "We need access to your photos to upload profile pictures.",
+        "NSLocationWhenInUseUsageDescription": "We need access to your location to show nearby stores and delivery options.",
+        "NSLocationAlwaysUsageDescription": "We need access to your location to track orders in real-time.",
+        "NSMicrophoneUsageDescription": "We need access to your microphone for voice search.",
+        "NSUserTrackingUsageDescription": "We need your permission to track activity for personalized ads.",
+        "UIBackgroundModes": ["location", "fetch"]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "NOTIFICATIONS"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "react-native-video",
-      "react-native-permissions"
+      [
+        "react-native-permissions",
+        {
+          "ios": {
+            "camera": "We need access to your camera to scan barcodes.",
+            "photoLibrary": "We need access to your photos to upload profile pictures.",
+            "locationWhenInUse": "We need access to your location to show nearby stores and delivery options.",
+            "locationAlways": "We need access to your location to track orders in real-time.",
+            "microphone": "We need access to your microphone for voice search.",
+            "notifications": "We need access to send you notifications for order updates, promotions, and alerts."
+          }
+        }
+      ]
     ]
   }
 }
